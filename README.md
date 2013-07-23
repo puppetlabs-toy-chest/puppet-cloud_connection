@@ -5,7 +5,7 @@
 This type does no work.  It just stores credentials for reference in the
 catalog for retrieval.  As such there are no providers to work with.
 
-## How?
+## Usage
 
 All that is needed is to create a resource with that looks something like the
 following.

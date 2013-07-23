@@ -1,5 +1,5 @@
 Puppet::Type.newtype(:cloud_connection) do
-  @doc = "Instance provisioning with puppet."
+  @doc = "Puppet catalog cloud credential storage."
 
   newparam(:name, :namevar => true) do
     desc "unique name of instance"
@@ -14,7 +14,6 @@ Puppet::Type.newtype(:cloud_connection) do
   end
 
   newparam(:location) do
-    desc "What datacenter/region is this instance in?"
+    desc "The datacenter/region API calls should be made to."
   end
-
 end
