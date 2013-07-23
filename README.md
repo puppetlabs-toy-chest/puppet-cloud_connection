@@ -1,4 +1,30 @@
 # Cloud_connection
 
-This type does no work.  It just stores redentials for reference in the catlog for retrieval.
+## What?
+
+This type does no work.  It just stores credentials for reference in the
+catalog for retrieval.  As such there are no providers to work with.
+
+## How?
+
+All that is needed is to create a resource with that looks something like the
+following.
+
+    cloud_connection { 'myawscredentials':
+      user     => $user,
+      pass     => $pass,
+      location => $region,
+    }
+
+Now types that support this resource and reference this type to gain credential
+information.
+
+    mycloudtype { "aws":
+      ...
+      connection => 'myawscredentials',
+      ...
+    }
+
+Now the user, pass, and location are available in the 'mycloudtype'.  Note,
+this is only supported on types that have implemented such features.
 
