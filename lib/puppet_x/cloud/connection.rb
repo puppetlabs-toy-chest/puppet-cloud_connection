@@ -1,16 +1,15 @@
 require 'puppet_x/cloud'
 
-# Included by the providers to reduce code repitiion
+# Included by the providers to reduce code deplication
 module PuppetX::Cloud::Connection
 
   #
-  # Get the connection object using the current resource paramaters
+  # Get the connection object using the current resource paramaters.
   #
   # Here we just return the existing connection object if it already exists or
   # build it and return it.
   #
-  # @conn is the connection object.  It is the fog resource that does the
-  # actual lifting.
+  # @conn is the Fog connection object that does the actual lifting.
   #
   def connect
     if @conn
@@ -32,11 +31,11 @@ module PuppetX::Cloud::Connection
   end
 
   #
-  # Get the credentials fom the type by searching through the catlog for the
+  # Get the credentials from the type by searching through the catlog for the
   # given connection resoruce.
   #
   # This is strictly a helper to ensure that we lookup the information only
-  # one time..
+  # once per resource that requires the connection details.
   #
   def get_cloud_connection
     if @connection_resource

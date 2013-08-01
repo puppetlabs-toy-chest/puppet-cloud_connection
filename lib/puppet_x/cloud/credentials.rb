@@ -9,6 +9,9 @@ module PuppetX::Cloud::Credentials
   # password from that resource.  This is here so that the cloud types can
   # reference a resource with the credentials.
   #
+  # Should be included by any type that needs access to the credentials stored
+  # in the catalog for a given cloud provider.
+  #
   def get_creds(connection=self[:connection])
     self.catalog.resources.find {|r|
       r.is_a?(Puppet::Type.type(:cloud_connection)) && r[:name] == connection
