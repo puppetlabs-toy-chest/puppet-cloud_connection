@@ -28,3 +28,14 @@ information.
 Now the user, pass, and location are available in the 'mycloudtype'.  Note,
 this is only supported on types that have implemented such features.
 
+## Adding support for a type
+
+To bring in the required code, a type needs to require the credentials code and
+then include the module to bring in the methods.
+
+    require 'puppet_x/cloud/credentials'
+    include PuppetX::Cloud::Credentials
+    Puppet::Type.newtype(:mynewtype) do
+      ...
+    end
+
