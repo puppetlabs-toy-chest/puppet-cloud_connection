@@ -37,5 +37,8 @@ then include the module to bring in the methods.
     include PuppetX::Cloud::Credentials
     Puppet::Type.newtype(:mynewtype) do
       ...
+      autorequire(:connection) do
+        self[:connection]
+      end
     end
 
